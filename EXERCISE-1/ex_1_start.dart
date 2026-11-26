@@ -16,12 +16,15 @@ void main() {
 
             Label("Method 2: Map", bold: true),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: colors.map((color) => Label(color)).toList(),
             ),
 
             Label("Method 3: Dedicated Function", bold: true),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: getLabels(),
+
             ),
           ],
           ),

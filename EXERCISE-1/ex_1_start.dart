@@ -11,18 +11,31 @@ void main() {
           padding: const EdgeInsets.all(10),
           child: ListView(
             children: [
-              Label("Method 1: Loop in Array", bold: true),
-              // TODO
-              Label("Method 2: Map", bold: true),
-              // TODO
-              Label("Method 23: Dedicated Function", bold: true),
-              // TODO
-            ],
+            Label("Method 1: Loop in Array", bold: true),
+            for (var color in colors) Label(color),
+
+            Label("Method 2: Map", bold: true),
+            Column(
+              children: colors.map((color) => Label(color)).toList(),
+            ),
+
+            Label("Method 3: Dedicated Function", bold: true),
+            Column(
+              children: getLabels(),
+            ),
+          ],
           ),
         ),
       ),
     ),
   );
+}
+List<Widget> getLabels() {
+  List<Widget> result = [];
+  for (var color in colors) {
+    result.add(Label(color));
+  }
+  return result;
 }
 
 class Label extends StatelessWidget {
